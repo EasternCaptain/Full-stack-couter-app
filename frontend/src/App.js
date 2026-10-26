@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'; 
 import { useEffect } from 'react'; 
+import styles from './App.module.css'; 
 
 export default function App() {
   const count = useSelector((state) => state.count); 
@@ -58,11 +59,13 @@ export default function App() {
   }; 
 
   return (
-    <div>
-      <h1>Counter</h1>
-      <h2>{count}</h2> 
-      <input type="button" value="-" onClick={handleDecrement} />
-      <input type="button" value="+" onClick={handleIncrement} />
+    <div className={styles.container}>
+      <h1 className={styles.counterHeader}>Counter state</h1>
+      <div className={styles.innerContainer}>
+        <input type="button" value="-" onClick={handleDecrement} className={styles.button}/>
+        <h2 className={styles.countValue}>{count}</h2>
+        <input type="button" value="+" onClick={handleIncrement} className={styles.button}/>
+      </div>
     </div>
   )
 }
