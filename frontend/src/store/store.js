@@ -13,6 +13,11 @@ const countReducer = (state = initialState, action) => {
             return {
                 ...state, 
                 count: state.count - action.payload 
+            } 
+        case "LOAD": 
+            return {
+                ...state, 
+                count: action.payload
             }
         default: 
             return state; 
